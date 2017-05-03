@@ -1,0 +1,129 @@
+
+// Content syles begin
+.content {
+	background: $third-color;
+	box-shadow: 0 4px 64px 0 $third-color;
+	border-radius: 8px;
+	flex-basis: 952px;
+	margin: 23px 0 60px 31px;
+	@include wide() {
+		flex-basis: 63.6%;
+		box-shadow: none;
+	} 
+	@include desktop() {
+		flex-basis: 66%;
+	} 
+}
+// Content navigation styles begin
+.content__nav-list {
+	padding: 0 12px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.content__nav-item {
+	padding: 11px 0;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	&.current {
+		&:before {
+			content: "";
+			width: 100%;
+			height: 2px;
+			background: $first-color;
+			position: absolute;
+			bottom: -1px;
+		}
+		
+	}
+	&:before {
+		content: "";
+		width: 0%;
+		height: 2px;
+		background: $first-color;
+		position: absolute;
+		bottom: -1px;
+		transition: width, 0.5s;
+		transform: translateX(-50%);
+		left: 50%;
+	}
+	&:hover:before {
+		width: 100%;
+	}
+}
+.content__nav-link {
+	width: 100%;
+	display: inline-block;
+}
+// Content navigation styles end
+
+// Order switcher styles begin
+.content__order-switcher {
+	padding: 27px 48px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.content__order-switcher-wrap {
+	position: relative;
+	margin-left: 34px;
+	display: inline-block;
+	&:after,
+	&:before {
+		content: "";
+		position: absolute;
+		transition: background, left, border, width, 0.5s;
+	} 
+	&:before {
+		width: 40px;
+		height: 20px;
+		border-radius: 100px;
+		background: $forth-color;
+		top: -15px;
+		left: -3px;
+	}
+	&:after {
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		border: 2px solid $forth-color;
+		top: -18px;
+		left: -4px;
+		background: #fff;
+	}
+	&:active {
+		width: 26px;
+	}
+	&:focus:after {
+		box-shadow: 0 0 0 3px rgba(255, 216, 64, 0.6);
+	}
+	&.checked {
+		&:before {
+			background: $first-color;
+		}
+		&:after {
+			left: 12px;
+		}
+		&:active {
+			&:before {
+				background: $second-color;
+				width: 26px;
+			}
+		} 
+	}
+}
+.content__order-switcher-area {
+	width: 40px;
+	height: 20px;
+	display: inline-block;
+	position: absolute;
+	top: -17px;			
+	opacity: 0;
+	z-index: 5;
+}
+#content__order-switcher {
+	background: transparent;
+	border: none;
+}
+// Order switcher styles end
+// Content syles end

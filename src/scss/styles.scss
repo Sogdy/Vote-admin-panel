@@ -1,0 +1,65 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "sidebar";
+@import "content";
+@import "content-players";
+
+// General styles begin
+body {
+  @include text ($first-color, $primary-font, 14px, 400);
+  background-image: linear-gradient(48deg, $forth-color, $fifth-color);
+  line-height: 24px;
+}
+// Typography stiles begin
+p {
+  @include text ($first-color, $primary-font, 14px, 400);
+  line-height: 24px;
+}
+a {
+	outline: none!important;
+	color: inherit;
+	text-decoration: none;
+}
+.sidebar__logo {
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: 700;
+	display: inline-block;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+.sidebar__block-heading {
+	font-size: 12px;
+	margin-bottom: 14px;
+	padding-left: 15px;
+}
+// Typography stiles end
+
+.button {
+	background: $third-color;
+	width: 128px;
+	height: 32px;
+	border-radius: 4px;
+	box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+	border: none;
+	cursor: pointer;
+	line-height: 20px;
+	text-align: center;
+	color: $first-color;
+	display: block;
+	outline: none;
+	transition: background, 0.5s;
+	&:hover {
+		background: $second-color;
+	}
+}
+.main {
+	display: flex;
+	@include desktop()  {
+		justify-content: space-between;
+		min-width: 1156px;
+	}
+}
+// General styles end
+

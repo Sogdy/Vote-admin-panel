@@ -1,0 +1,34 @@
+mixin nav(className, items)
+	nav(class=`${className}`)
+		ul(class=`${className}-list`)
+			each item in items
+				li(class=`${className}-item` + ( (item.isactive) ? " current" : '') )
+					a(class=`${className}-link` href=`${item.link}`)= item.name
+
+
+
+mixin socials(socials)
+	each social in socials
+		li.socials__item
+				a(class=`socials__link socials__link_${social.name}` href=`${social.link}`)
+					i(class=`fa fa-${social.name}` aria-hidden="true")
+
+
+mixin players(players)
+	each player in players
+		if player.name 
+			li.content__players-item.player
+				a(href=`${player.link}` class="player__photo-wrap")
+					img(src=(!player.photo) ? "images/player-placeholder.jpg" : `images/${player.photo}` alt=`Photo: ${player.name}` class="player__photo")
+				a(href=`${player.link}` class="player__name")= player.name
+		else 
+			li.content__players-item.player_empty
+
+
+mixin votes(votes)
+	ul.sidebar__list
+		each vote in votes
+			li(class=((vote.isnew) ? "sidebar__list-item new-vote" : "sidebar__list-item") )
+				a(href=`${vote.link}` class="sidebar__item-link")
+					img(src=(!vote.photo) ? "images/vote-placeholder.svg" : `images/${vote.photo}` alt=`Photo: ${vote.name}` class="sidebar__item-img")
+					p.sidebar__item-name= vote.name

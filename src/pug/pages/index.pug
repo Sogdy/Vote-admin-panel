@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+	//Aside block begin
+	aside.sidebar
+		header.sidebar__header
+			.sidebar__menu
+				sidebar__menu-button
+
+			h1.sidebar__logo Omnigon
+			button.button New vote
+		.sidebar__block
+			include ../templates/vote-draft
+			
+		.sidebar__block
+			include ../templates/vote-active
+			
+		.sidebar__block
+			include ../templates/vote-closed
+			
+	//Aside block end
+
+
+	// Content block begin
+	.content
+		include ../templates/nav
+		.content__order-switcher
+			label(for="content__order-switcher") Present in random order
+			.content__order-switcher-wrap
+				label(for="content__order-switcher" class="content__order-switcher-area")
+					input(type="checkbox" value="1" id="content__order-switcher" checked class="checked")
+		.content__players-wrap
+			p.content__players-note Embed at least 2 players*
+			ul.content__players
+				include ../templates/players
+
+
+	// Content block end
+
+
+block jsIncludes
+	// jQuery (necessary for some JavaScript plugins)
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+
+	// General options 
+	script(src="js/general.js")

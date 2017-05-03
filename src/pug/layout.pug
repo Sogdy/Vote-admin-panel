@@ -1,0 +1,24 @@
+include templates/mixins
+
+doctype
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        block title
+            title Omnigon
+        meta(name="description" content="Omnigon description")
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+
+        // CSS
+
+        // Site Styles
+        link(rel="stylesheet" href="css/styles.css")
+
+    body
+
+        main.main
+            block content
+
+        
+
+        block jsIncludes

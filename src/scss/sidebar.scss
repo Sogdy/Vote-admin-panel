@@ -1,0 +1,78 @@
+
+// Sidebar styles begin
+.sidebar {
+	background: $first-color;
+	flex-basis: 508px;
+	color: $third-color;
+	position: relative;
+	&:before {
+		content: "";
+		top: 0;
+		left: 0;
+		width: 508px;
+		height: 100vh;
+		background: $first-color;
+		z-index: -2;
+		@include wide() {
+			width: 32%;
+		}
+	}
+	@include wide() {
+		flex-basis: 32%;
+	}
+}
+.sidebar__header {
+	padding: 12px 15px;
+	margin-bottom: 2px;
+}
+.sidebar__menu {
+	display: inline-block;
+	cursor: pointer;
+}
+.sidebar__menu-button {
+	background: $third-color;
+	width: 18px;
+	height: 2px;
+	box-shadow: 0 -5px 0 0 $third-color, 0 5px 0 0 $third-color;
+	display: inline-block;
+	margin-bottom: 6px;
+	margin-right: 15px;
+	margin-left: 3px;
+	cursor: pointer;
+}
+.sidebar__block {
+	padding: 14px 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.sidebar__list-item {
+	transition: background, color, font-weight, 0.5s;
+	&.new-vote,
+	&:hover {
+		background: $second-color;
+		font-weight: 700;
+	}
+	&.new-vote .sidebar__item-name,
+	&:hover .sidebar__item-name {
+		color: $first-color;
+	}
+	&.new-vote .sidebar__item-name {
+		font-weight: 700;
+	}
+}
+.sidebar__item-img {
+	margin-right: 16px;
+	max-width: 48px;
+	max-height: 48px;
+	height: auto;
+	border-radius: 50%;
+}
+.sidebar__item-link {
+	width: 100%;
+	padding: 11px 15px;
+	display: flex;
+	align-items: center;
+}
+.sidebar__item-name {
+	color: $third-color;
+}
+// Sidebar styles end
